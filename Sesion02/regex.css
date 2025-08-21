@@ -1,0 +1,13 @@
+a[href^="http"]{
+    color: blueviolet;
+
+}
+
+a[href$="com"]{
+    color: blueviolet;
+}
+
+a[href*="youtube"]{
+    color: firebrick;
+}
+

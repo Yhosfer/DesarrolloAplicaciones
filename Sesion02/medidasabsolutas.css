@@ -1,0 +1,14 @@
+span, em, strong {
+    font-size: 35px;
+}
+
+
+ul + p {
+    font-size: 10px;
+
+}
+
+[href="https://www.youtube.com/"] {
+    font-size: 20px;
+
+}

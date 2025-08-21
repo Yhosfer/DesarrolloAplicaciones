@@ -1,3 +1,9 @@
+/* CSS Document */
+
+/* Selectores */
+
+/* por su nombre
+*/
 h1{
     color: lightblue;
     text-align: center;
@@ -29,10 +35,15 @@ em{
 
     font-family: new times roman,monospace;
 }
+
+/* por su clase */
 .parrafo{
     color: #2d5780;
     text-align: center;
 }
+
+/* por su id
+  */
 #division{
     background: beige;
     text-transform: uppercase;
@@ -40,10 +51,97 @@ em{
     font-size: 20px;
     text-decoration: underline;
 }
-
+/* Selectores de atributos */
 [href]{
     color: coral;
 }
 [href="https://www.facebook.com/"]{
     color: blue;
 }
+
+/* Pseudo clases */
+/* Se refieren al estado del elemento como hover o focus */
+a:hover{
+    text-decoration: blueviolet;
+}
+input:focus{
+    background-color: blanchedalmond;
+}
+textarea:focus{
+    background-color: blueviolet;
+}
+
+ul li:nth-child(2){
+    color: red;
+}
+
+ul li:nth-child(3){
+    color: saddlebrown;
+    font-size: 20px;
+
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-indent: 20px;
+    font-family: times new roman ,serif;
+    font-style: italic;
+    /* font-weight: bold; */
+}
+
+/* Pseudo Elementos  ::  */
+
+p::first-letter{
+    color: darkgreen;
+    font-size: larger;
+    font-weight: normal;  /* tipo de letra */
+}
+
+/* Selectores combinados */
+
+/* Descendientes */
+
+li a {
+    text-decoration: aqua ;
+    color: dodgerblue;
+
+}
+
+[href="https://www.youtube.com/"] {
+    color: dodgerblue;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Adyacentes */
+
+ul + p {
+
+    color: #804f7e;
+    font-size: 10px;
+    font-family: times new roman ,serif;
+}
+
+/* Hijos Directos */
+
+div#container > ul {
+    border: 1px solid black;
+}
+
+/* Hermanos
+
+h2 ~ p {
+    color: #804f7e;
+    font-size: 96px;
+    font-family: times new roman ,serif;
+}
+
+*/
+
+/* Multimples Selectores  */
+
+span, em, strong {
+    text-decoration: underline;
+    text-transform: uppercase;
+    /* */
+
+}
+
