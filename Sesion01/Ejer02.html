@@ -2,18 +2,23 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registro de Cuenta Lol</title>
+
     <style>
-        h1{
-            color: teal;
+        .h1{
+            color: #2d5780;
         }
+        .bordes{
+            border: 2px solid dodgerblue;
+        }
+
         form{
             /* centrar formulario en la página */
             margin: 0 auto;
-            width: 400px;
+            width: 500px;
             /* esquema del formulario */
             padding: 1em;
-            border: 1px solid #CCC;
+            border: 3px solid #2d5780;
             border-radius: 1em;
         }
         ul{
@@ -58,7 +63,8 @@
         button{
             /* Alinear los botones con los campos de texto */
 
-            padding-left: 90px;
+            padding-left: 10px;
+
         }
         button{
             /* Este margen adicional representa aproximadamente
@@ -66,71 +72,45 @@
             entre las etiquetas y sus campos detexto*/
             margin-left: .5em;
         }
-    </style>
+        .checkBox{
 
+            width: 15px;
+            height: 15px;
+            margin-right: 1px;
+        }
+    </style>
 </head>
 <body>
-
-/* sdsdsdsdsds
-<h1>Experiencia de Práctica N°01:</h1>
-
-<h2> a) creando primer elemento HTML</h2>
-<em>- Etiqueda "em"</em>
-
-<h2> b) Añadir atributos a un elemento</h2>
-
-
-<p>
-    <a href="https://www.google.com" >Google </a> <br>
-    Utilizando atributo title y target
-    <a href="https://www.google.com" title="Pagina de inicio de Google" target="_blank">Google</a> <br>
-
-</p>
-
-<h1>Experiencia de Práctica N°02: Formulario Web</h1>
-
-<h2> a) Elementos Form, Label, input, textarea y Button</h2>
-
-<form action="/my-handling-form-page" method="post">
+<form action="" method="post"><h1>CREA TU CUENTA DE LOL</h1>
     <ul>
         <li>
-            <label for="name">Nombre: </label>
-            <input type="text" id="name" name="user_name">
+            <label for="name">Nombre de Usuario: </label>
+            <input type="text" id="name" name="user_name" required minlength="4" maxlength="16"
+            title="El nombre de usuario debe tener entre 4 y 16 caracteres.">
+
         </li>
         <li>
             <label for="mail">Correo electronico: </label>
-            <input type="email" id="mail" name="user_email">
+            <input type="email" id="mail" name="user_email" value="tuCorreo@dominio.com">
         </li>
         <li>
-            <label for="msg">Mensaje: </label>
-            <textarea id="msg" name="user_message"></textarea>
-
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="user_password" required minlength="8" >
         </li>
-
-
         <li>
-
-            atributo "value" de la etiqueta "input" <br>
-            defecto:
-            <input type="text" value="valor por defecto">
+            <label for="birthdate">Fecha de Nacimiento</label>
+            <input type="date" id="birthdate" name="user_birthdate" required>
         </li>
+        <input class="checkBox" type="checkbox" id="confirma" name="terminos"
+               value="Terminos y Condiciones" required
+        title="Debes aceptar los terminos y condiciones para poder registrarte.">
+        <label for="confirma">Terminos y Condiciones</label>
+        <br>
+        <button type="submit">Registrarse</button>
 
-        <li>
-            Valor por defecto de la etiqueta "textarea" <br>
-            <label for="msg1">Mensaje: </label>
-            <textarea name="mensaje" id="msg1" cols="30" rows="10">valor por defecto en la etiqueta textarea</textarea>
-        </li>
 
-        <li>
-            <button type="submit" formtarget="_blank">Envie su msg</button>
-        </li>
     </ul>
 
 </form>
-
-<h1>Experiencia de Práctica N°03: Tablas</h1>
-*\
-<table> </table>
-
 </body>
 </html>

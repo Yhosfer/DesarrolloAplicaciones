@@ -3,22 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <!-- Estilo  -->
+    <style>
+        .h1{
+            color: #2d5780;
+        }
+        .bordes{
+            border: 2px solid dodgerblue;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+
+        }
+        td, th {
+            border: 1px solid black;
+            text-align: left;
+            padding: 4px;
+        }
+
+    </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>  Hola, primera celda</td>
-            <td>  segunda celda</td>
-            <td>  tercera celda</td>
-            <td>  cuarta celda</td>
-        </tr>
-        <tr>
-            <td>  Segunda fila, celda1</td>
-            <td>  celda 2</td>
-            <td>  celda 3</td>
-        </tr>
-    </table>
-    <br>
+
+<h1 class="h1">Experiencia de Práctica N°03: Tablas</h1>
+<hr >
+
+
+<h2 class="bordes"> a) Creando tablas</h2>
+<table>
+    <tr>
+        <td>  Hola, primera celda</td>
+        <td>  segunda celda</td>
+        <td>  tercera celda</td>
+        <td>  cuarta celda</td>
+    </tr>
+    <tr>
+        <td>  Segunda fila, celda1</td>
+        <td>  celda 2</td>
+        <td>  celda 3</td>
+    </tr>
+</table>
+<br>
+<hr>
 
 <table>
     <tr>
@@ -37,10 +65,10 @@
 </body>
 
 
+<hr>
 <table>
     <colgroup>
-        <col>
-        <col style="background-color: yellow">
+        <col style="background-color: lavender" span="2">
     </colgroup>
 
     <tr>
@@ -56,8 +84,71 @@
         <td> Jazz 2</td>
     </tr>
 </table>
-
+<br>
+<h2 class="bordes"> b) Implementando colgrup y col</h2>
+<hr>
  <table>
-     <colgroup 
+     <colgroup>
+         <col >
+         <col >
+         <col style="background-color: #97DB9A">
+         <col style="width: 42px">
+         <col style="background-color: #97DB9A">
+         <col style="background-color: #c59039;border: 2px solid #C1437A">
+         <col style="width: 42px">
+         <col style="width: 42px">
+
+
+     </colgroup>
+     <tr>
+         <th></th>
+         <th>Mon</th>
+         <th>Tues</th>
+         <th>Wed</th>
+         <th>Thurs</th>
+         <th>Fri</th>
+         <th>Sat</th>
+         <th>Sun</th>
+     </tr>
+     <tr>
+         <th>1st period</th>
+         <th>English</th>
+         <th></th>
+         <th></th>
+         <th>German</th>
+         <th>Dutch</th>
+         <th></th>
+         <th></th>
+     </tr>
+     <tr>
+         <th>2nd period</th>
+         <th>English</th>
+         <th>English</th>
+         <th></th>
+         <th>German</th>
+         <th>Dutch</th>
+         <th></th>
+         <th></th>
+     </tr>
+     <tr>
+         <th>3rd period</th>
+         <th></th>
+         <th>German</th>
+         <th></th>
+         <th>German</th>
+         <th>Dutch</th>
+         <th></th>
+         <th></th>
+     </tr>
+     <tr>
+         <th>4th period</th>
+         <th></th>
+         <th>English</th>
+         <th></th>
+         <th>English</th>
+         <th>Dutch</th>
+         <th></th>
+         <th></th>
+     </tr>
  </table>
 </html>
