@@ -1,3 +1,9 @@
-p{
-    ex: 100px;
+.tamanioletaEm{
+    font-size: 2em;
+
 }
+
+.ejemploREM{
+    font-size: 2rem;
+}
+

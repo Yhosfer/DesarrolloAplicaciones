@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidas Relativas en CSS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            color: #4a6fa5;
+            border-bottom: 2px solid #6fe2c3;
+            padding-bottom: 0.5rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .example {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .example:hover {
+            transform: translateY(-5px);
+        }
+
+        .example-title {
+            font-size: 1.4rem;
+            color: #2ecc71;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-title span {
+            margin-right: 0.5rem;
+            font-size: 1.6rem;
+        }
+
+        .demo-box {
+            background-color: #f8f9fa;
+            border: 2px dashed #4a6fa5;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-element {
+            background-color: #4a6fa5;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .demo-element:hover {
+            opacity: 0.9;
+        }
+
+        .code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        .explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            border-left: 4px solid #4a6fa5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #4a6fa5;
+            color: white;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Medidas Relativas en CSS</h1>
+    <p>Ejemplos visuales de las diferentes unidades de medida relativas</p>
+</header>
+
+<div class="container">
+    <div class="example">
+        <h2 class="example-title"><span>📏</span> Unidades EM</h2>
+        <p>La unidad <code>em</code> es relativa al tamaño de fuente del elemento padre.</p>
+        <div class="demo-box" style="font-size: 20px;">
+            <p>Contenedor con font-size: 20px</p>
+            <div class="demo-element" style="width: 10em; font-size: 1em;">10em = 200px</div>
+            <div class="demo-element" style="width: 15em; font-size: 0.8em;">15em = 300px</div>
+        </div>
+        <div class="code">
+            .elemento {<br>
+            &nbsp;&nbsp;width: 10em; /* 10 veces el tamaño de fuente del padre */<br>
+            &nbsp;&nbsp;font-size: 1em; /* igual al tamaño de fuente del padre */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1em equivale al font-size del elemento padre. Si el padre tiene font-size: 20px, entonces 1em = 20px, 2em = 40px, etc.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>📐</span> Unidades REM</h2>
+        <p>La unidad <code>rem</code> es relativa al tamaño de fuente del elemento raíz (<code>html</code>).</p>
+        <div class="demo-box">
+            <div class="demo-element" style="width: 10rem;">10rem = 160px</div>
+            <div class="demo-element" style="width: 15rem;">15rem = 240px</div>
+            <div class="demo-element" style="width: 20rem;">20rem = 320px</div>
+        </div>
+        <div class="code">
+            html { font-size: 16px; }<br>
+            .elemento {<br>
+            &nbsp;&nbsp;width: 10rem; /* 10 × 16px = 160px */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1rem equivale al font-size del elemento raíz (html). Por defecto es 16px en la mayoría de navegadores.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>🔤</span> Unidades EX</h2>
+        <p>La unidad <code>ex</code> es relativa a la altura de la letra 'x' en minúscula de la fuente actual.</p>
+        <div class="demo-box" style="font-size: 30px;">
+            <p>Contenedor con font-size: 30px</p>
+            <div class="demo-element" style="height: 2ex; width: 20ex;">Altura: 2ex</div>
+            <div class="demo-element" style="height: 3ex; width: 15ex;">Altura: 3ex</div>
+        </div>
+        <div class="code">
+            .elemento {<br>
+            &nbsp;&nbsp;height: 2ex; /* 2 veces la altura de la 'x' */<br>
+            &nbsp;&nbsp;width: 20ex; /* 20 veces la altura de la 'x' */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1ex equivale a la altura del carácter 'x' en la fuente actual. Es útil para ajustar dimensiones relacionadas con la tipografía.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>🔡</span> Unidades CH</h2>
+        <p>La unidad <code>ch</code> es relativa al ancho del carácter '0' en la fuente actual.</p>
+        <div class="demo-box" style="font-size: 20px;">
+            <p>Contenedor con font-size: 20px</p>
+            <div class="demo-element" style="width: 10ch;">0000000000</div>
+            <div class="demo-element" style="width: 15ch;">000000000000000</div>
+        </div>
+        <div class="code">
+            .elemento {<br>
+            &nbsp;&nbsp;width: 10ch; /* Ancho de 10 caracteres '0' */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1ch equivale al ancho del glifo '0' en la fuente actual. Es útil para definir anchos relacionados con la cantidad de texto.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>↕️</span> Unidades LH</h2>
+        <p>La unidad <code>lh</code> es relativa a la altura de línea del elemento.</p>
+        <div class="demo-box" style="line-height: 30px;">
+            <p>Contenedor con line-height: 30px</p>
+            <div class="demo-element" style="height: 1lh; width: 100%;">Altura: 1lh = 30px</div>
+            <div class="demo-element" style="height: 2lh; width: 100%;">Altura: 2lh = 60px</div>
+        </div>
+        <div class="code">
+            .contenedor { line-height: 30px; }<br>
+            .elemento {<br>
+            &nbsp;&nbsp;height: 1lh; /* Igual a la altura de línea */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1lh equivale al valor de line-height del elemento. Es útil para mantener la coherencia en espaciado vertical.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>🖥️</span> Viewport Width (VW)</h2>
+        <p>La unidad <code>vw</code> representa el 1% del ancho de la ventana gráfica.</p>
+        <div class="demo-box">
+            <div class="demo-element" style="width: 50vw;">50vw (mitad del ancho del viewport)</div>
+            <div class="demo-element" style="width: 25vw;">25vw (cuarto del ancho del viewport)</div>
+        </div>
+        <div class="code">
+            .elemento {<br>
+            &nbsp;&nbsp;width: 50vw; /* 50% del ancho de la ventana */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1vw equivale al 1% del ancho del viewport. Si el viewport mide 1200px de ancho, 50vw = 600px.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>📊</span> Viewport Height (VH)</h2>
+        <p>La unidad <code>vh</code> representa el 1% del alto de la ventana gráfica.</p>
+        <div class="demo-box">
+            <div class="demo-element" style="height: 10vh;">10vh de alto</div>
+            <div class="demo-element" style="height: 20vh;">20vh de alto</div>
+        </div>
+        <div class="code">
+            .elemento {<br>
+            &nbsp;&nbsp;height: 20vh; /* 20% del alto de la ventana */<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1vh equivale al 1% del alto del viewport. Si el viewport mide 800px de alto, 50vh = 400px.
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-title"><span>📐</span> VMIN y VMAX</h2>
+        <p><code>vmin</code> y <code>vmax</code> representan el menor y mayor entre vw y vh.</p>
+        <div class="demo-box">
+            <div class="demo-element" style="width: 50vmin; height: 50vmin;">50vmin (cuadrado)</div>
+            <div class="demo-element" style="width: 30vmax; height: 10vmax;">30vmax × 10vmax</div>
+        </div>
+        <div class="code">
+            .elemento {<br>
+            &nbsp;&nbsp;width: 50vmin; /* 50% de la dimensión más pequeña */<br>
+            &nbsp;&nbsp;height: 50vmin;<br>
+            }
+        </div>
+        <div class="explanation">
+            <strong>Explicación:</strong> 1vmin es el 1% de la dimensión más pequeña del viewport, 1vmax es el 1% de la dimensión más grande.
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Ejemplos de Medidas Relativas en CSS - Diseño Web Responsive</p>
+</footer>
+</body>
+</html>
