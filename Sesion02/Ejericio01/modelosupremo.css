@@ -1,0 +1,144 @@
+
+/*experiencia 2*/
+.titulacion{
+  color: #164fa3;
+  letter-spacing: uppercase;
+}
+.seccion {
+  margin-block: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: .75rem;
+}
+
+.lead {
+  font-size: 1.125rem;
+  background: #f8f9fa;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+}
+.destacado {
+  background: #fff3cd;
+  padding: .125rem .375rem;
+  border-radius: .25rem;
+}
+
+/* colores exp 6 */
+.rojo  { background: red; }
+.azul  { background: blue; }
+.verde { background: green; }
+
+/* rgb */
+.rgb1 { background: rgb(255, 0, 0); }     
+.rgb2 { background: rgb(0%, 100%, 0%); }   
+.rgb3 { background: rgb(0, 0, 255); }      
+
+/* hex */
+.hex1 { background: #FF5733; }  
+.hex2 { background: #33FF57; }  
+.hex3 { background: #3357FF; }  
+
+/* hsl */
+.hsl1 { background: hsl(0, 100%, 50%); }    
+.hsl2 { background: hsl(120, 100%, 40%); }  
+.hsl3 { background: hsl(240, 100%, 60%); }  
+
+/* opacos */
+.op1 { background: rgba(190, 33, 33, 0.445);}
+.op2 { background: hsla(120, 40%, 58%, 0.5); }
+.op3 { background: rgba(0, 0, 255, 0.7); }
+
+/*experiencia 3*/
+h1 {
+color: black;
+}
+h2 {
+color: brown;
+font-family: 'Times New Roman', Times, serif;
+}
+p {
+color: #000;
+font-weight: 100;
+color: beige;
+}
+
+body {
+      background-color: rgb(243, 195, 105); 
+    }
+
+li {
+color: darkblue;
+font-weight: bold;
+}
+
+table {
+border: 1px solid green;   
+border-collapse: collapse;
+color: darkmagenta;
+}
+
+input {
+    color: yellow;
+    background-color: red;
+    font-size: 16px;
+    border: blueviolet;
+}
+label{
+    color: darkorange;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.color1 {
+    color: green;
+}
+.color2 {
+    color: purple;
+}
+.color3 {
+    color: orange;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+    font-size: 20px;
+}
+p::first-letter {
+    color: darkred;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/*experiencia 4*/
+div p {
+  color: blue;
+}
+
+ul > li {
+  font-weight: bold;
+  color: green;
+}
+
+h2 + p {
+  color: red;
+}
+
+h2 ~ p {
+  font-style: italic;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  background: #f0f0f0;
+  padding: 4px;
+}
+
+a {
+color: blue;
+}

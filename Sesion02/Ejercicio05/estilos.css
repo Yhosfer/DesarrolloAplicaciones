@@ -1,0 +1,168 @@
+/* ===== Variables + capas ===== */
+@layer base, components, utilities;
+
+:root{
+  --azul-osc:#0a4e96;
+  --azul:#0c6ad2;
+  --azul-claro:#29a6ff;
+  --panel:#0f6fc4;
+  --panel-2:#0c63b3;
+  --panel-3:#0a57a0;
+  --texto:#02243f;
+  --amarillo:#ffb000;
+  --blanco:#fff;
+  --radius:22px;
+  --shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+
+@layer base{
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:system-ui,Segoe UI,Roboto,Inter,sans-serif;
+    color:var(--blanco);
+    background: linear-gradient(180deg,#0e5fb4,#0a4d90 40%,#08467f);
+  }
+  h1,h2,h3,p{margin:0}
+  a{color:inherit;text-decoration:none}
+}
+
+@layer utilities{
+  :where(.hidden){display:none}
+}
+
+
+@layer components{
+
+    .marco{
+    max-width: 980px;
+    margin: 28px auto;
+    border-radius: var(--radius);
+    background:
+      radial-gradient(100% 60% at 50% 0%, rgba(255,255,255,.15), transparent 60%) no-repeat,
+      linear-gradient(180deg, var(--panel), var(--panel-2) 60%, var(--panel-3));
+    box-shadow: var(--shadow);
+    overflow: clip;
+    position: relative;
+  }
+
+  .marco__brillo{
+    content:"";
+    position:absolute; inset:0;
+    -webkit-mask:linear-gradient(#000 0 55%, transparent);
+            mask:linear-gradient(#000 0 55%, transparent);
+    background: linear-gradient(180deg, rgba(255,255,255,.35), transparent 60%);
+    pointer-events:none;
+  }
+
+  
+  .hero{
+    min-height: 360px;
+    padding: 16px 18px;
+    border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0;
+    background:
+      radial-gradient(120% 140% at 20% 0%, rgba(0,180,255,.18), transparent 60%),
+      url("assets/hero.jpg") center/cover no-repeat;
+    position: relative;
+  }
+  
+  .stamp{
+    position:absolute; right:18px; bottom:14px;
+    background:#fff; color:#2b2b2b;
+    padding:.55rem .7rem; border-radius:12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    font-weight:700; font-size:.9rem;
+  }
+
+  .hero__title{
+    font-size: clamp(28px, 5vw, 54px);
+    text-shadow: 0 3px 0 rgba(0,0,0,.25);
+    letter-spacing:.02em;
+    margin-top: 12px;
+  }
+  .hero__copy{
+    margin-top: 10px;
+    font-size: clamp(16px, 2.4vw, 20px);
+  }
+
+  
+  .logo{
+    margin: 12px auto 8px;
+    width:max-content;
+    position:relative;
+    padding: 12px 22px;
+    border-radius: 18px;
+    background: linear-gradient(180deg,#0a61bd,#064f9b);
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.25), var(--shadow);
+  }
+  .logo::before{
+    content:""; position:absolute; inset:0;
+    border-radius:18px;
+    background: linear-gradient(180deg, rgba(255,255,255,.35), transparent 60%);
+    pointer-events:none;
+  }
+  .logo__disney{ display:block; text-align:center; font-style:italic; opacity:.8; }
+  .logo__club{ display:block; font-weight:900; font-size:40px; line-height:1; letter-spacing:.03em; }
+  .logo__penguin{
+    display:block; font-weight:900; font-size:32px; color:var(--amarillo); line-height:1;
+    text-shadow: 0 2px 0 rgba(0,0,0,.35);
+  }
+
+  
+  .cta{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    padding: 18px 18px 22px;
+  }
+  .btn{
+    display:inline-grid; place-items:center;
+    min-height:70px; border-radius: 18px;
+    font-weight:900; font-size: clamp(18px,2.4vw,22px);
+    background: linear-gradient(180deg,#1bb0ff,#0b77da);
+    border:2px solid #0a5bb1;
+    box-shadow: inset 0 6px 0 rgba(255,255,255,.25), 0 10px 18px rgba(0,0,0,.25);
+    transition: transform .12s ease, filter .12s ease;
+  }
+ 
+  .btn[data-cta="login"]{
+    background: linear-gradient(180deg,#33c8ff,#0c8cf0);
+  }
+  .btn:hover{ filter:brightness(1.05) }
+  .btn:active{ transform: translateY(1px) }
+
+ 
+  .contenido{ max-width: 980px; margin: 12px auto 40px; }
+  .tarjetas{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+  .card{
+    background: linear-gradient(180deg,#0d65be,#0b5aaa);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+  }
+  .card h3{ color:#ffe38a; margin-bottom:6px }
+  .pie{
+    max-width:980px; margin:0 auto 32px; padding:10px 6px; text-align:center; color:#cfe6ff;
+  }
+
+
+  .to-top{ color:#cfe6ff; text-decoration: underline dotted }
+  :where(a, .btn):focus-visible{ outline:3px solid color-mix(in srgb, var(--azul-claro) 70%, white); outline-offset:3px }
+
+  
+  @media (max-width: 760px){
+    .cta{ grid-template-columns: 1fr; }
+    .tarjetas{ grid-template-columns: 1fr }
+    .hero{ min-height: 300px }
+  }
+}
+
+
+:is(h1,h2,h3).outline{ text-shadow:0 2px 0 rgba(0,0,0,.25) }
+
+.marco:has(.stamp){ box-shadow: 0 16px 40px rgba(0,0,0,.35) }
+
+.cta a[href^="#"], .cta a[href^="/"]{ text-transform: capitalize }
+
+:where(.card p){ opacity:.95 }
+ 
