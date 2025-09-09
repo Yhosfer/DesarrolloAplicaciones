@@ -1,0 +1,73 @@
+.layout{
+  display:grid;
+  gap:12px;
+  padding:12px;
+  min-height:100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto repeat(3, minmax(120px,1fr)) auto;
+  grid-template-areas:
+    "header"
+    "nav"
+    "hero"
+    "a"
+    "b"
+    "c"
+    "footer";
+}
+.box{
+  border:2px solid #64748b;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800
+}
+.header{
+  grid-area:header
+}
+.nav{
+  grid-area:nav
+}
+.hero{
+  grid-area:hero;
+  min-height:160px
+}
+.a{
+  grid-area:a
+}
+.b{
+  grid-area:b
+}
+.c{
+  grid-area:c
+}
+.footer{
+  grid-area:footer
+}
+/* >=480px: 2 columnas, héroe ancho completo */
+@media (min-width:480px){
+  .layout{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto minmax(160px,auto) minmax(120px,1fr) auto;
+    grid-template-areas:
+      "header header"
+      "nav    nav"
+      "hero   hero"
+      "a      b"
+      "footer footer";
+  }
+  .c{display:none;} /* En este breakpoint ocultamos C */
+}
+/* >=900px: 3 columnas; héroe ocupa 2 columnas; A/B/C acomodados */
+@media (min-width:900px){
+  .layout{
+    grid-template-columns: 220px 1fr 1fr;
+    grid-template-rows: auto minmax(180px,auto) minmax(140px,1fr) auto;
+    grid-template-areas:
+      "header header header"
+      "nav    hero   hero"
+      "nav    a      b"
+      "footer footer footer";
+  }
+  .c{display:flex; grid-area:b;} /* Reubicar C junto a B si se desea */
+}
