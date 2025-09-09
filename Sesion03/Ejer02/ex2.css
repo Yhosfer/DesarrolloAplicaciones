@@ -1,0 +1,46 @@
+.container{
+  display:flex;
+  gap:16px;
+  padding:16px;
+  min-height:60vh;
+  flex-wrap:wrap
+}
+.block{
+  flex:1 1 480px;
+  border:2px dashed #999;
+  padding:16px;
+  border-radius:12px;
+  background:#f8f8f8
+}
+.block h2{
+  margin:0 0 12px
+}
+.row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap
+}
+.item{
+  flex:1 1 200px;
+  min-height:80px;
+  border:2px solid #ccc;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600
+}
+/* >= 900px: dos columnas principales lado a lado */
+@media (min-width:900px){
+  .container{flex-wrap:nowrap}
+  .block{flex:1 1 0}
+}
+/* <= 900px: bloques uno debajo del otro, ítems en dos por fila si caben */
+@media (max-width:900px){
+  .item{flex:1 1 45%}
+}
+/* <= 480px: todo en una sola columna, ítems apilados */
+@media (max-width:480px){
+  .container{flex-direction:column}
+  .item{flex:1 1 100%}
+}

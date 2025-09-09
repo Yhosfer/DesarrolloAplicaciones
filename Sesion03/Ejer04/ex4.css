@@ -1,0 +1,28 @@
+.grid{
+  display:grid;
+  grid-template-columns: 220px 1fr 220px;
+  grid-template-rows: 80px minmax(300px,auto) 60px;
+  grid-template-areas:
+    "header header header"
+    "sidebar main   aside"
+    "footer footer footer";
+  gap:12px;
+  padding:12px;
+  min-height:100vh;
+}
+.box{border:3px solid #6b7280;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.header{
+  grid-area:header
+}
+.sidebar{
+  grid-area:sidebar
+}
+.main{
+  grid-area:main
+}
+.aside{
+  grid-area:aside
+}
+.footer{
+  grid-area:footer
+}

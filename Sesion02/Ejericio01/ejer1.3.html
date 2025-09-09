@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./modelosupremo.css" />
+  <title>Tercero | Cajón Peruano Educativo</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="ejer1.html">Inicio</a></li>
+      <li><a href="ejer1.2.html">segundo</a></li>
+      <li><a href="ejer1.3.html">tercero</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="titulacion">Actividades guiadas y formulario</h1>
+
+  <section class="seccion">
+    <h2>Secuencia didáctica</h2>
+    <p class="lead">
+      Empieza con lectura rítmica y termina con un mini‑reto de conteo.
+    </p>
+    <div>
+      <p>1) Lee el patrón <em>TA‑TA‑PAM‑TSS</em> y marca los tiempos fuertes.</p>
+    </div>
+    <ul>
+      <li>2) Relaciona cada tiempo con un número (1‑2‑3‑4).</li>
+      <li>3) Repite cambiando el acento a los pares.</li>
+    </ul>
+    <h2>Notas</h2>
+    <p>Este párrafo (inmediatamente después de H2) se estiliza por el selector <code>h2 + p</code> del CSS.</p>
+    <p>Y este otro se ve en cursiva por <code>h2 ~ p</code> (hermano general).</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Mini formulario</h2>
+    <form>
+      <label for="nombre">Nombre del estudiante</label><br>
+      <input id="nombre" name="nombre" type="text" placeholder="Ej. Ana" /><br><br>
+
+      <label for="grado">Grado</label><br>
+      <input id="grado" name="grado" type="text" placeholder="Ej. 4°" /><br><br>
+
+      <label for="patron">Patrón favorito</label><br>
+      <input id="patron" name="patron" type="text" placeholder="TA‑PAM‑TSS" /><br><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <section class="seccion">
+    <h2>Texto con primera letra destacada</h2>
+    <p>
+      practicar el cajón peruano a diario mejora la coordinación bimanual y el control atencional,
+      lo que favorece operaciones como el conteo, la seriación y el cálculo mental.
+    </p>
+  </section>
+
+  <section class="seccion">
+    <h2>Enlaces de prueba (hover)</h2>
+    <p>Coloca el mouse sobre los enlaces para ver el estilo <code>a:hover</code>:</p>
+    <p>
+      <a href="https://ejemplo.com/ritmo">Guía de ritmo</a> |
+      <a href="https://ejemplo.com/matematica">Matemática y ritmo</a>
+    </p>
+  </section>
+</body>
+</html>
