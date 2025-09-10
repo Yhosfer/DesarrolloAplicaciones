@@ -1,46 +1,61 @@
-.container{
-  display:flex;
-  gap:16px;
-  padding:16px;
-  min-height:60vh;
-  flex-wrap:wrap
+header {
+  background: #0f172a;
+  color: #fff;
+  padding: 15px 30px;
 }
-.block{
-  flex:1 1 480px;
-  border:2px dashed #999;
-  padding:16px;
-  border-radius:12px;
-  background:#f8f8f8
+.titulo {
+  text-align: center;
+  font-size: 10px;
+  font-weight: normal;
 }
-.block h2{
-  margin:0 0 12px
+.titulo1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
 }
-.row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap
+.titulo2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  background-color: #aeaeaf;
+  width: 140px;
+  margin: 0 auto;
 }
-.item{
-  flex:1 1 200px;
-  min-height:80px;
-  border:2px solid #ccc;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:600
+/* Estilos por defecto, para pantallas de hasta 479px */
+.contenedor-principal {
+  display: flex;
+  text-align: center;
+  flex-direction: column; /* Apila los divs verticalmente */
+  align-items: center; /* Centra los divs horizontalmente */
 }
-/* >= 900px: dos columnas principales lado a lado */
-@media (min-width:900px){
-  .container{flex-wrap:nowrap}
-  .block{flex:1 1 0}
+.bloques {
+  border: 1px solid  #94a3b8;
+  padding: 20px;
+  margin: 10px;
+  width: 90%; /* Ancho para móviles */
+  /* Añade una sombra para efecto de caja */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-/* <= 900px: bloques uno debajo del otro, ítems en dos por fila si caben */
-@media (max-width:900px){
-  .item{flex:1 1 45%}
+
+/* Breakpoint 1: Para pantallas mayores a 480px  */
+@media screen and (min-width: 480px) {
+  .contenedor-principal {
+    flex-direction: row; /* divs en una fila */
+    flex-wrap: wrap; /* Permite que los divs se envuelvan a la siguiente línea si no caben */
+    justify-content: center; /* Centra los elementos en el eje principal */
+  }
+  /* Dos bloques por fila en pantallas medianas */
+  .bloques {
+    width: 33%;
+  }
 }
-/* <= 480px: todo en una sola columna, ítems apilados */
-@media (max-width:480px){
-  .container{flex-direction:column}
-  .item{flex:1 1 100%}
+/* Breakpoint 2: Para pantallas de mayores a 900px  */
+@media screen and (min-width: 900px) {
+  .contenedor-principal {
+    /* Mantiene todos los divs en una sola fila */
+  }
+  /* Hasta trs bloques en pantallas mas grandes*/
+  .bloques {
+    width: 25%;
+  }
 }
