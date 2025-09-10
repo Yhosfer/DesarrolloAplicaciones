@@ -1,0 +1,84 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0f172a;
+    color: #fff;
+    padding: 15px 30px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* ---- Grid de galería ---- */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    gap: 10px;
+    /*Pa que las imagenes no se ensanchen demasiado
+    en una pantalla de escritorio*/
+    max-width: 800px;   /* ancho máximo */
+    margin: 0 auto;      /* centra el grid */
+}
+
+
+.grid-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.grid-container > div {
+    display: flex;              /* activa flexbox */
+    align-items: center;        /* centra verticalmente */
+    justify-content: center;    /* centra horizontalmente */
+    overflow: hidden;           /* evita desbordes */
+}
+
+/* Collage, posiciones concretas */
+.item1 { grid-area: 1 / 1 / 3 / 3; }
+.item2 { grid-area: 3 / 2 / 5 / 4; }
+.item3 { grid-area: 5 / 1 / 7 / 3; }
+
+/* Responsividad */
+/* para tablets, fila de 2 columnas
+ y se desactiva el collage */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+    }
+    .grid-container > div { grid-area: auto; }
+}
+/* En celulares, una solo columna
+ las imagenes ocupan una fila*/
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 150px;
+    }
+}
