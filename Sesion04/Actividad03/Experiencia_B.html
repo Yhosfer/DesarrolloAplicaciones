@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 03 - Closure</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°03</h1>
+<h2>Closure</h2>
+
+<p>Abre la consola para ver cómo funciona un closure.</p>
+
+<script>
+  function makeFunc() {
+    const name = "Mozilla";
+
+    function displayName() {
+      console.log(name); // usa variable externa
+    }
+
+    return displayName; // se devuelve la función
+  }
+
+  const myFunc = makeFunc();
+  myFunc(); // imprime "Mozilla"
+</script>
+</body>
+</html>

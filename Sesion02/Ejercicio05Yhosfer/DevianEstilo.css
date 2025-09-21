@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333333;
+    padding: 10px 20px;
+    color: white;
+}
+/*Estilo botonos*/
+.boton{
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/*Pseudo-clase : hover*/
+.boton:hover{
+    background: #555;
+}
+/*Menu desplegable*/
+.menu{
+    position: relative;
+    display: inline-block;
+}
+/*Contenedor oculto*/
+.menu-content{
+    display: none;
+    position: absolute;
+    background: #222;
+    color: black;
+    min-width: 150px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+/*Opciones del menú*/
+.menu-content a{
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+.menu-content a:hover{
+    background-color: #555;
+}
+/*Mostrar menu*/
+.menu:hover .menu-content{
+    display: block;
+}
+
+
+.campana{
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.campana:hover{
+    color: yellow;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 05A - Creación de Arrays</title>
+</head>
+<body>
+<h1>Práctica 05A — Creación de Arrays</h1>
+<button onclick="crearArrays()">Crear Arrays</button>
+<pre id="out"></pre>
+
+<script>
+  function crearArrays() {
+    let salida = "";
+
+    // 1) Array de números
+    const numeros1 = [1, 2, 3]; // literal
+    const numeros2 = new Array(4, 5, 6); // constructor
+    const numeros3 = Array.of(7, 8, 9); // método Array.of
+
+    salida += "Numeros: " + JSON.stringify(numeros1) + " | " + JSON.stringify(numeros2) + " | " + JSON.stringify(numeros3) + "\n\n";
+
+    // 2) Array de strings
+    const frutas1 = ["manzana", "pera"];
+    const frutas2 = new Array("uva", "mango");
+    const frutas3 = Array.of("naranja", "sandía");
+
+    salida += "Frutas: " + JSON.stringify(frutas1) + " | " + JSON.stringify(frutas2) + " | " + JSON.stringify(frutas3) + "\n\n";
+
+    // 3) Array de objetos
+    const objs1 = [{id:1}, {id:2}];
+    const objs2 = new Array({id:3}, {id:4});
+    const objs3 = Array.of({id:5}, {id:6});
+
+    salida += "Objetos: " + JSON.stringify(objs1) + " | " + JSON.stringify(objs2) + " | " + JSON.stringify(objs3) + "\n";
+
+    document.getElementById("out").textContent = salida;
+    console.log("Arrays creados:", { numeros1, numeros2, numeros3, frutas1, frutas2, frutas3, objs1, objs2, objs3 });
+  }
+</script>
+</body>
+</html>

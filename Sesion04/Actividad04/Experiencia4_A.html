@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Práctica 04A - Creación de objetos</title>
+</head>
+<body>
+<h1>Práctica 04A — Creación de objetos</h1>
+<p>Haz clic en "Crear objetos" y revisa también la consola (F12).</p>
+
+<button id="btnCrear">Crear objetos</button>
+<pre id="out"></pre>
+
+<script>
+  // Función auxiliar para mostrar propiedades propias y prototipo
+  function describir(obj) {
+    // propiedades propias (enumerables)
+    const propias = {};
+    Object.keys(obj).forEach(k => propias[k] = obj[k]);
+    // prototipo (si existe)
+    const proto = Object.getPrototypeOf(obj);
+    return {
+      propias,
+      proto: proto ? proto : null
+    };
+  }
+
+  document.getElementById('btnCrear').addEventListener('click', () => {
+    const out = document.getElementById('out');
+    out.textContent = ''; // limpiar
+
+    // 1) Iniciador de objetos (object literal)
+    const personaLiteral = {
+      nombre: 'Ana',
+      edad: 25,
+      saludo() { return `Hola, soy ${this.nombre}`; }
+    };
+    console.log('personaLiteral (literal):', personaLiteral);
+    out.textContent += 'Literal -> ' + JSON.stringify(describir(personaLiteral)) + '\n\n';
+
+    // 2) Constructor (function + new)
+    function Persona(nombre, edad) {
+      this.nombre = nombre;
+      this.edad = edad;
+    }
+    // agrego un método en el prototype (opción recomendada)
+    Persona.prototype.saludo = function() { return `Hola, soy ${this.nombre}`; };
+
+    const personaCtor = new Persona('Luis', 30);
+    console.log('personaCtor (constructor):', personaCtor);
+    out.textContent += 'Constructor -> ' + JSON.stringify(describir(personaCtor)) + '\n\n';
+
+    // 3) Object.create(proto)
+    const protoBase = { tipo: 'Estudiante', descripcion() { return `Tipo: ${this.tipo}`; } };
+    const personaCreate = Object.create(protoBase);
+    personaCreate.nombre = 'Carla';
+    personaCreate.edad = 20;
+    console.log('personaCreate (Object.create):', personaCreate);
+    out.textContent += 'Object.create -> ' + JSON.stringify(describir(personaCreate)) + '\n\n';
+
+    // mostrar comportamientos
+    out.textContent += 'Comportamientos:\n';
+    out.textContent += 'personaLiteral.saludo() -> ' + personaLiteral.saludo() + '\n';
+    out.textContent += 'personaCtor.saludo()     -> ' + personaCtor.saludo() + '\n';
+    out.textContent += 'personaCreate.descripcion() -> ' + personaCreate.descripcion() + '\n';
+
+    // detalles en consola (más legible)
+    console.group('Detalles objetos');
+    console.log('literal propias/prototype', describir(personaLiteral));
+    console.log('constructor propias/prototype', describir(personaCtor));
+    console.log('create propias/prototype', describir(personaCreate));
+    console.groupEnd();
+  });
+</script>
+</body>
+</html>

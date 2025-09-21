@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo CSS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root { --acento: #0a7; font-size: clamp(16px, 1.8vw, 20px); }
+        body { font-family: system-ui, sans-serif; line-height: 1.6; margin: 0 auto; max-width: 70ch; padding: 1rem; }
+        h1 { color: var(--acento); }
+        .btn { background: var(--acento); color: white; border: 0; padding: .6rem 1rem; border-radius: .5rem; transition: transform .2s; }
+        .btn:focus-visible { outline: 3px solid; outline-offset: 2px; }
+        .btn:hover { transform: translateY(-2px); }
+        @media (min-width: 700px) { main { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; } }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+</head>
+<body>
+<header><h1>Mi Página</h1></header>
+<main>
+    <article><p>Texto de ejemplo con diseño responsivo y accesible.</p><button class="btn">Acción</button></article>
+    <aside>Aside</aside>
+</main>
+</body>
+</html>

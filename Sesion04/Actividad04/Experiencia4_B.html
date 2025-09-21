@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Práctica 04B - Agregar propiedades</title>
+</head>
+<body>
+<h1>Práctica 04B — Agregar propiedades</h1>
+<p>Haz clic en los botones para ejecutar cada ejemplo y revisa la consola.</p>
+
+<button id="btnLiteral">Agregar a literal</button>
+<button id="btnConstructor">Agregar a constructor</button>
+<button id="btnCreate">Agregar a Object.create</button>
+
+<pre id="out"></pre>
+
+<script>
+  // Ejemplo objeto literal
+  const autoLiteral = { marca: 'Toyota' };
+
+  // Ejemplo constructor
+  function Auto(marca) { this.marca = marca; }
+  Auto.prototype.obtenerMarca = function() { return this.marca; };
+  const autoCtor = new Auto('Nissan');
+
+  // Ejemplo Object.create
+  const protoVeh = { categoria: 'Vehículo' };
+  const autoCreate = Object.create(protoVeh);
+  autoCreate.marca = 'Chevrolet';
+
+  // Función mostrar estado (propias y prototype)
+  function estado(obj) {
+    let texto = '';
+    texto += 'Propias: ' + JSON.stringify(Object.keys(obj).reduce((acc,k)=>{acc[k]=obj[k];return acc;},{}) ) + '\n';
+    const proto = Object.getPrototypeOf(obj);
+    texto += 'Prototype: ' + (proto ? JSON.stringify(Object.keys(proto).reduce((acc,k)=>{acc[k]=proto[k];return acc;},{}) ) : 'null') + '\n';
+    return texto;
+  }
+
+  document.getElementById('btnLiteral').addEventListener('click', () => {
+    // 1) Dot notation
+    autoLiteral.color = 'Rojo';
+    // 2) Bracket notation (útil si la propiedad tiene caracteres o viene de variable)
+    autoLiteral['anio'] = 2021;
+    // 3) Object.defineProperty (controlar enumerabilidad, writable, configurable)
+    Object.defineProperty(autoLiteral, 'placa', {
+      value: 'ABC-123',
+      writable: false,
+      enumerable: true,
+      configurable: false
+    });
+
+    console.log('autoLiteral final', autoLiteral);
+    document.getElementById('out').textContent = 'Literal actualizado:\n' + estado(autoLiteral);
+  });
+
+  document.getElementById('btnConstructor').addEventListener('click', () => {
+    // 1) Agregar propiedad a la instancia
+    autoCtor.color = 'Blanco';
+    // 2) Agregar propiedad/función al prototype (se comparte entre instancias)
+    Auto.prototype.peso = function() { return '1200kg'; };
+    // 3) Usar Object.assign para copiar propiedades desde otro objeto
+    Object.assign(autoCtor, { puertas: 4 });
+
+    console.log('autoCtor final', autoCtor);
+    document.getElementById('out').textContent = 'Constructor actualizado:\n' + estado(autoCtor) +
+            '\nComportamiento prototype (obtenerMarca): ' + autoCtor.obtenerMarca() +
+            '\nComportamiento prototype (peso): ' + autoCtor.peso();
+  });
+
+  document.getElementById('btnCreate').addEventListener('click', () => {
+    // 1) Propiedad propia
+    autoCreate.color = 'Azul';
+    // 2) Si modificamos el prototipo base, afecta a todos los que lo heredan
+    Object.getPrototypeOf(autoCreate).capacidad = '5 pasajeros';
+    // 3) Añadir propiedad no enumerable
+    Object.defineProperty(autoCreate, 'codigoInterno', {
+      value: 999,
+      enumerable: false
+    });
+
+    console.log('autoCreate final', autoCreate);
+    document.getElementById('out').textContent = 'Object.create actualizado:\n' + estado(autoCreate) +
+            '\nNota: codigoInterno no aparece en listados normales (no enumerable).';
+  });
+</script>
+</body>
+</html>

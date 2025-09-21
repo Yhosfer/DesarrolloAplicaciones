@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 02 - console.log y Scope</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°02</h1>
+<h2>Uso de console.log() y scope</h2>
+
+<p>Abre la consola para ver cómo cambian los alcances de las variables.</p>
+
+<script>
+  let globalVar = "Soy global";
+
+  function externa() {
+    let externaVar = "Soy de la función externa";
+
+    function interna() {
+      let internaVar = "Soy de la función interna";
+      console.log(globalVar);   // accesible
+      console.log(externaVar);  // accesible
+      console.log(internaVar);  // accesible
+    }
+
+    interna();
+    // console.log(internaVar); // error, fuera de alcance
+  }
+
+  externa();
+</script>
+
+</body>
+</html>

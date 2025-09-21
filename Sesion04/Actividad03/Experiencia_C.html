@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 03 - Ámbito de función</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°03</h1>
+<h2>Ámbito de función</h2>
+
+<p>Abre la consola para ver el alcance de las variables.</p>
+
+<script>
+  // Ejemplo 1: variable solo dentro de la función
+  function exampleFunction() {
+    const x = "declarada dentro de la función";
+    console.log("Inside function:", x);
+  }
+
+  exampleFunction();
+  // console.log(x); // error: x no existe afuera
+
+  // Ejemplo 2: variable global accesible desde función
+  const y = "declarada fuera";
+  function anotherFunction() {
+    console.log("Inside function:", y);
+  }
+
+  anotherFunction();
+  console.log("Outside function:", y);
+
+  // Ejemplo 3: uso de try, catch, finally
+  function f() {
+    try {
+      console.log(0);
+      throw "bogus"; // lanza error
+    } catch (e) {
+      console.log(1);
+      return true; // este return se suspende
+    } finally {
+      console.log(3);
+      return false; // este return sobrescribe al anterior
+    }
+  }
+  console.log(f()); // salida: 0, 1, 3, false
+</script>
+
+</body>
+</html>

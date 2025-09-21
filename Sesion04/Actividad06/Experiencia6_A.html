@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 06A - Objeto Window</title>
+</head>
+<body>
+<h1>Práctica 06A — Objeto Window</h1>
+<button onclick="probarWindow()">Probar Window</button>
+<pre id="out"></pre>
+
+<script>
+    function probarWindow() {
+        let salida = "";
+
+        // 1. Métodos básicos
+        window.alert("Hola, soy un alert de Window.");
+        let confirmar = window.confirm("¿Deseas continuar?");
+        let nombre = window.prompt("¿Cuál es tu nombre?", "Invitado");
+
+        salida += "Confirm: " + confirmar + "\n";
+        salida += "Nombre ingresado: " + nombre + "\n\n";
+
+        // 2. Propiedades del objeto window
+        salida += "Ancho de ventana: " + window.innerWidth + " px\n";
+        salida += "Alto de ventana: " + window.innerHeight + " px\n";
+
+        document.getElementById("out").textContent = salida;
+        console.log("Objeto Window probado");
+    }
+</script>
+</body>
+</html>

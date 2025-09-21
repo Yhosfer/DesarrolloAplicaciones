@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Experiencia B</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°01:B</h1>
+<h2>Declaración de código en etiquetas script</h2>
+
+<!-- Botón que se conecta con JS -->
+<button id="btnSaludo">Saludar</button>
+
+<!-- Párrafo que cambia con JS -->
+<p id="mensaje">Aquí aparecerá un mensaje...</p>
+
+<!-- Código JS en etiquetas script -->
+<script>
+  // Capturar elementos
+  const btn = document.getElementById("btnSaludo");
+  const mensaje = document.getElementById("mensaje");
+
+  // Agregar evento al botón
+  btn.onclick = function () {
+    mensaje.textContent = "¡Hola! Mensaje modificado con JS";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 06B - Objeto Array</title>
+</head>
+<body>
+<h1>Práctica 06B — Objeto Array</h1>
+<button onclick="probarArray()">Probar Array</button>
+<pre id="out"></pre>
+
+<script>
+  function probarArray() {
+    let salida = "";
+    let frutas = ["mango", "pera", "uva", "manzana"];
+
+    salida += "Original: " + frutas + "\n";
+
+    frutas.sort();
+    salida += "sort(): " + frutas + "\n";
+
+    frutas.reverse();
+    salida += "reverse(): " + frutas + "\n";
+
+    salida += "includes('uva'): " + frutas.includes("uva") + "\n";
+    salida += "indexOf('pera'): " + frutas.indexOf("pera") + "\n";
+
+    salida += "join('-'): " + frutas.join(" - ") + "\n";
+
+    document.getElementById("out").textContent = salida;
+    console.log("Objeto Array probado");
+  }
+</script>
+</body>
+</html>

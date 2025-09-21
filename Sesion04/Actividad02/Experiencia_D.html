@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 02 - Tipos de Datos</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°02</h1>
+<h2>Tipos de datos y cambio de tipos</h2>
+
+<p>Abre la consola para ver cómo cambian los tipos de datos.</p>
+
+<script>
+  // Cambio de tipo
+  var answer = 42;
+  console.log(answer); // número
+  answer = "Gracias por todo el pescado...";
+  console.log(answer); // string
+
+  // parseInt con diferentes bases
+  console.log(parseInt("F", 16));
+  console.log(parseInt("17", 8));
+  console.log(parseInt("15", 10));
+  console.log(parseInt(15.99, 10));
+  console.log(parseInt("FXX123", 16));
+  console.log(parseInt("1111", 2));
+  console.log(parseInt("15*3", 10));
+  console.log(parseInt("12", 13));
+  console.log(parseInt("Hello", 8));
+  console.log(parseInt("0x7", 10));
+  console.log(parseInt("546", 2));
+
+  // toString
+  var howMany = 10;
+  console.log("howMany.toString() es " + howMany.toString());
+  console.log("45 .toString() es " + (45).toString());
+  var x = 7;
+  console.log("x.toString(2) es " + x.toString(2)); // binario
+</script>
+
+</body>
+</html>

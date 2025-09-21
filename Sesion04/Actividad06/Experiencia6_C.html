@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 06C - Objeto Number</title>
+</head>
+<body>
+<h1>Práctica 06C — Objeto Number</h1>
+<button onclick="probarNumber()">Probar Number</button>
+<pre id="out"></pre>
+
+<script>
+  function probarNumber() {
+    let salida = "";
+    let num = 1234.567;
+
+    salida += "Número original: " + num + "\n";
+    salida += "toFixed(2): " + num.toFixed(2) + "\n";
+    salida += "toPrecision(4): " + num.toPrecision(4) + "\n";
+
+    salida += "Number.isNaN('abc'): " + Number.isNaN("abc") + "\n";
+    salida += "Number.isFinite(100): " + Number.isFinite(100) + "\n";
+
+    salida += "parseInt('45.9'): " + parseInt("45.9") + "\n";
+    salida += "parseFloat('45.9'): " + parseFloat("45.9") + "\n";
+
+    document.getElementById("out").textContent = salida;
+    console.log("Objeto Number probado");
+  }
+</script>
+</body>
+</html>

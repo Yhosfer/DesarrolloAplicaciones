@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 02 - Variables y Constantes</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°02:A</h1>
+<h2>Uso de Variables y Constantes</h2>
+
+<p>Abre la consola del navegador (F12) para ver los resultados.</p>
+
+<script>
+  // Bloque de código con variable y constante
+  {
+    let miVariable = "Soy una variable con ámbito de bloque";
+    const miConstante = "Soy una constante con ámbito de bloque";
+
+    console.log(miVariable);   // accesible aquí
+    console.log(miConstante);  // accesible aquí
+  }
+
+  // Fuera del bloque las variables ya no existen
+  // console.log(miVariable);  // error si se descomenta
+  // console.log(miConstante); // error si se descomenta
+</script>
+
+<!-- Explicación:
+   - let crea variables con alcance de bloque.
+   - const crea constantes con alcance de bloque.
+   - Fuera del bloque no se pueden usar. -->
+</body>
+</html>

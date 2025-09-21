@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 05B - Manipulación de Arrays</title>
+</head>
+<body>
+<h1>Práctica 05B — Manipulación de Arrays</h1>
+<button onclick="manipularArrays()">Manipular Arrays</button>
+<pre id="out"></pre>
+
+<script>
+  function manipularArrays() {
+    let salida = "";
+    let arr = [10, 20, 30];
+
+    salida += "Inicial: " + arr + "\n";
+
+    arr.push(40); // agrega al final
+    salida += "push(40): " + arr + "\n";
+
+    arr.pop(); // elimina último
+    salida += "pop(): " + arr + "\n";
+
+    arr.unshift(5); // agrega al inicio
+    salida += "unshift(5): " + arr + "\n";
+
+    arr.shift(); // elimina primero
+    salida += "shift(): " + arr + "\n";
+
+    let arr2 = [100, 200];
+    let combinado = arr.concat(arr2);
+    salida += "concat([100,200]): " + combinado + "\n";
+
+    let cortado = combinado.slice(1, 4); // extrae
+    salida += "slice(1,4): " + cortado + "\n";
+
+    combinado.splice(2, 1, 999); // reemplazo en posición 2
+    salida += "splice(2,1,999): " + combinado + "\n";
+
+    document.getElementById("out").textContent = salida;
+    console.log("Manipulación completa:", combinado);
+  }
+</script>
+</body>
+</html>

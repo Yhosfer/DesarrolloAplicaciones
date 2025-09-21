@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 05C - Iteradores de Arrays</title>
+</head>
+<body>
+<h1>Práctica 05C — Iteradores de Arrays</h1>
+<button onclick="iterarArrays()">Iterar Arrays</button>
+<pre id="out"></pre>
+
+<script>
+  function iterarArrays() {
+    let salida = "";
+    const numeros = [1, 2, 3, 4, 5];
+
+    // forEach
+    salida += "forEach: ";
+    numeros.forEach(n => salida += n + " ");
+    salida += "\n";
+
+    // map
+    let cuadrados = numeros.map(n => n*n);
+    salida += "map (cuadrados): " + cuadrados + "\n";
+
+    // filter
+    let pares = numeros.filter(n => n % 2 === 0);
+    salida += "filter (pares): " + pares + "\n";
+
+    // reduce
+    let suma = numeros.reduce((acc, n) => acc + n, 0);
+    salida += "reduce (suma): " + suma + "\n";
+
+    // for...of
+    salida += "for...of: ";
+    for (let n of numeros) {
+      salida += "[" + n + "]";
+    }
+    salida += "\n";
+
+    document.getElementById("out").textContent = salida;
+    console.log("Iteradores aplicados:", { cuadrados, pares, suma });
+  }
+</script>
+</body>
+</html>

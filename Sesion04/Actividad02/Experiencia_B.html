@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 02 - Hoisting</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°02</h1>
+<h2>Elevación de variables (Hoisting)</h2>
+
+<p>Revisa la consola para entender el comportamiento del hoisting.</p>
+
+<script>
+  console.log(x === undefined); // true, x existe pero aún no tiene valor
+  var x = 3; // la declaración "var x" se eleva, pero no su valor
+
+  var myvar = 'my value';
+  (function() {
+    console.log(myvar); // undefined (por hoisting dentro de la función)
+    var myvar = 'valor local';
+  })();
+</script>
+
+</body>
+</html>

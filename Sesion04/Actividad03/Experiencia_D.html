@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 03 - Excepciones</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°03</h1>
+<h2>Manejo de Excepciones</h2>
+
+<p>Abre la consola para ver cómo se manejan errores.</p>
+
+<script>
+  // Crear tipo de excepción personalizado
+  function UserException(message) {
+    this.message = message;
+    this.name = "UserException";
+  }
+
+  // Función que puede lanzar error
+  function getMonthName(mo) {
+    mo--; // ajustar a índice (0-11)
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    if (months[mo] !== undefined) {
+      return months[mo];
+    } else {
+      throw new UserException("InvalidMonthNo");
+    }
+  }
+
+  let monthName;
+  try {
+    const myMonth = 15; // inválido
+    monthName = getMonthName(myMonth);
+  } catch (e) {
+    monthName = "unknown";
+    console.error(e.message, e.name);
+  }
+
+  console.log("Resultado:", monthName);
+</script>
+
+</body>
+</html>

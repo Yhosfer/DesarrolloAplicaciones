@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 03 - Funciones Primera Clase</title>
+</head>
+<body>
+<h1>Experiencia de práctica N°03</h1>
+<h2>Funciones como ciudadanos de primera clase</h2>
+
+<p>Abre la consola (F12) para ver los resultados.</p>
+
+<script>
+  // Función en variable (arrow function)
+  const foo = () => {
+    console.log("foobar");
+  };
+
+  foo(); // se invoca usando la variable
+
+  // Pasando función como argumento
+  function sayHello() {
+    return "Hello, ";
+  }
+
+  function greeting(helloMessage, name) {
+    console.log(helloMessage() + name);
+  }
+
+  greeting(sayHello, "JavaScript!");
+
+  // Función que retorna otra función
+  function sayHelloAgain() {
+    return () => {
+      console.log("Hello!");
+    };
+  }
+
+  const fn = sayHelloAgain(); // guardar función retornada
+  fn(); // ejecutarla
+</script>
+
+</body>
+</html>
