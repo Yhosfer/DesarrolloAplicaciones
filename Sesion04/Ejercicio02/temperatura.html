@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Conversor de Temperatura</title>
+</head>
+<body>
+  <h1>Conversor C a F y viceversa</h1>
+
+  <h3>Celsius -> Fahrenheit</h3>
+  <label>°C:
+    <input id="celsius" type="number" step="0.1" value="25">
+  </label>
+  <button onclick="aF()">Convertir</button>
+  <span id="outF">-</span>
+
+  <h3>Fahrenheit -> Celsius</h3>
+  <label>°F:
+    <input id="fahrenheit" type="number" step="0.1" value="77">
+  </label>
+  <button onclick="aC()">Convertir</button>
+  <span id="outC">-</span>
+
+  <script src="temperatura.js" defer></script>
+  <script>
+    function aF() {
+      const c = parseFloat(document.getElementById('celsius').value) || 0;
+      document.getElementById('outF').textContent = celsiusAFahrenheit(c).toFixed(2) + ' °F';
+    }
+    function aC() {
+      const f = parseFloat(document.getElementById('fahrenheit').value) || 0;
+      document.getElementById('outC').textContent = fahrenheitACelsius(f).toFixed(2) + ' °C';
+    }
+  </script>
+</body>
+</html>

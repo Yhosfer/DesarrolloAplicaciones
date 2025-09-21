@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Generador de Contraseña</title>
+</head>
+<body>
+  <h1>Generador de Contraseña</h1>
+
+  <label>Longitud:
+    <input id="len" type="number" min="4" max="64" value="12">
+  </label>
+  <br>
+  <label><input id="mayus" type="checkbox" checked> Mayúsculas</label>
+  <label><input id="minus" type="checkbox" checked> Minúsculas</label>
+  <label><input id="nums" type="checkbox" checked> Números</label>
+  <label><input id="sims" type="checkbox" checked> Símbolos</label>
+  <br><br>
+  <button onclick="generar()">Generar</button>
+
+  <p>Tu contraseña: <code id="outPass">-</code></p>
+
+  <script src="contrasena.js" defer></script>
+  <script>
+    function generar() {
+      const len = parseInt(document.getElementById('len').value) || 8;
+      const may = document.getElementById('mayus').checked;
+      const min = document.getElementById('minus').checked;
+      const num = document.getElementById('nums').checked;
+      const sim = document.getElementById('sims').checked;
+
+      const pass = generarContrasena(len, may, min, num, sim);
+      document.getElementById('outPass').textContent = pass;
+    }
+  </script>
+</body>
+</html>
