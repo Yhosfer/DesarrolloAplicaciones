@@ -1,0 +1,23 @@
+$brand: #198754; 
+$dark: #212529;
+
+.navbar-brand { font-weight: 700; }
+
+.badge-cart {
+  background: $brand;
+  color: #fff;
+}
+
+.price {
+  font-weight: 700;
+  color: $brand;
+}
+
+.product-card {
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: .5rem;
+  overflow: hidden;
+
+  .title { font-weight: 600; }
+  .thumb { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+}
