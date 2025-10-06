@@ -1,0 +1,70 @@
+// 1. VARIABLES
+$color-principal: #8b2635;
+$color-secundario: #d4a574;
+$color-oscuro: #2c1810;
+
+$espaciado: 20px;
+// 2. MIXIN SIMPLE
+@mixin estilo-boton {
+  background-color: $color-principal;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+
+  &:hover {
+    background-color: darken($color-principal, 10%);
+  }
+}
+// 3. ESTILOS BASE
+body {
+  font-family: Arial, sans-serif;
+}
+// 4. HEADER
+.header-tienda {
+  background-color: $color-principal;
+  color: white;
+  padding: $espaciado;
+
+  h1 {
+    margin: 0;
+  }
+}
+// 5. BOTONES
+.btn-comprar {
+  @include estilo-boton;
+}
+// 6. TABLAS
+.table {
+  margin-top: $espaciado;
+
+  thead {
+    background-color: $color-oscuro;
+    color: white;
+  }
+}
+// 7. TARJETAS
+.card {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+  &:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+}
+// 8. FORMULARIOS
+.form-control {
+  border-radius: 5px;
+
+  &:focus {
+    border-color: $color-principal;
+  }
+}
+// 9. FUNCIÓN SASS
+@function aclarar($color) {
+  @return lighten($color, 10%);
+}
+// 10. RESPONSIVE
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}

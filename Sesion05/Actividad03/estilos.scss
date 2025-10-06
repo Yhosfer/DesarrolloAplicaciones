@@ -1,0 +1,56 @@
+$nav-bg: #212529;
+$nav-hover: #ffc107;
+$dropdown-bg: #343a40;
+$dropdown-hover: lighten($nav-hover, 10%);
+$transition-time: 0.3s;
+
+.navbar-custom {
+  background-color: $nav-bg;
+
+  .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: $nav-hover;
+      transition: color $transition-time;
+    }
+  }
+
+  .nav-link {
+    color: white;
+    margin-left: 12px;
+
+    &:hover {
+      color: $nav-hover;
+      transition: color $transition-time;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: $dropdown-bg;
+    border: none;
+    animation: fadeInDown 0.4s ease;
+
+    .dropdown-item {
+      color: white;
+
+      &:hover {
+        background-color: $dropdown-hover;
+        color: black;
+        transition: background-color $transition-time;
+      }
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

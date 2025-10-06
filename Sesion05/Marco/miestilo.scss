@@ -1,0 +1,14 @@
+$mifuente: helvetica, sans-serif;
+$micolor: red;
+$mifuentesize: 18px;
+$miancho: 680px;
+
+body{
+  font-family: $mifuente;
+  color: $micolor;
+  font-size: $mifuentesize;
+}
+
+#container{
+  width: $miancho;
+}
