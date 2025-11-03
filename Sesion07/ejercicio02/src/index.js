@@ -1,4 +1,4 @@
-// src/index.js (Create React App)
+// src/server.js (Create React App)
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
